@@ -793,7 +793,11 @@ body[data-theme="dark"] .about-experience-icon{
   box-shadow:0 10px 26px rgba(15,23,42,0.85);
   cursor:pointer;
   transition:transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+
+  aspect-ratio: 16 / 9;   /* 🔥 FIX: image height issue */
+  background:#000;
 }
+
 .media-thumb:hover{
   transform:translateY(-3px);
   box-shadow:0 16px 40px rgba(15,23,42,0.95);
@@ -1392,6 +1396,666 @@ footer a:hover{ color:var(--secondary-color); }
 
 /* Utility */
 .muted{color:var(--muted-text); font-size:0.8rem;}
+
+/* === ACHIEVEMENTS ENHANCED BACKGROUND === */
+#timeline.page::before,
+#timeline.page::after {
+  content:"";
+  position:absolute;
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  filter: blur(90px);
+  opacity:0.45;
+  z-index:0;
+  animation: floatOrb 18s ease-in-out infinite;
+}
+#timeline.page::before {
+  background: radial-gradient(circle, #f59e0b, transparent 60%);
+  top:15%;
+  left:8%;
+}
+#timeline.page::after {
+  background: radial-gradient(circle, #a855f7, transparent 60%);
+  bottom:10%;
+  right:10%;
+  animation-delay: 6s;
+}
+@keyframes floatOrb {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-40px); }
+  100% { transform: translateY(0px); }
+}
+#timeline section { position:relative; z-index:1; }
+
+.achievement-stat-pill {
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.achievement-stat-pill:hover {
+  transform: translateY(-3px) scale(1.04);
+  box-shadow: 0 12px 30px rgba(124,58,237,0.35);
+}
+.achievement-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.achievement-card:hover {
+  transform: translateY(-6px) scale(1.015);
+  box-shadow: 0 0 0 1px rgba(168,85,247,0.6),
+              0 30px 70px rgba(124,58,237,0.45);
+}
+@media (max-width: 768px) {
+  .achievement-stats-row,
+  .achievement-filters {
+    overflow-x:auto;
+    padding-bottom:6px;
+  }
+  .achievement-timeline { gap:14px; }
+  .achievement-card { margin-top:10px; }
+}
+
+
+/* === ULTRA FUTURISTIC ACHIEVEMENTS LAYER === */
+
+/* Neon grid backdrop */
+#timeline.page {
+  background-image:
+    linear-gradient(rgba(99,102,241,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(236,72,153,0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Glow sweep animation */
+@keyframes glowSweep {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Achievement card holographic edge */
+.achievement-card::after {
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius:inherit;
+  background: linear-gradient(
+    120deg,
+    transparent 30%,
+    rgba(99,102,241,0.8),
+    rgba(236,72,153,0.8),
+    transparent 70%
+  );
+  background-size:200% 200%;
+  opacity:0;
+  transition:opacity 0.3s;
+  animation: glowSweep 3s linear infinite;
+  pointer-events:none;
+}
+.achievement-card:hover::after {
+  opacity:0.6;
+}
+
+/* Timeline pulse */
+.timeline-step.active .timeline-dot {
+  animation: pulseDot 1.8s infinite;
+}
+@keyframes pulseDot {
+  0% { box-shadow:0 0 0 0 rgba(99,102,241,0.6); }
+  70% { box-shadow:0 0 0 10px rgba(99,102,241,0); }
+  100% { box-shadow:0 0 0 0 rgba(99,102,241,0); }
+}
+
+/* Filter futuristic underline */
+.achievement-filter.active {
+  position:relative;
+}
+.achievement-filter.active::after {
+  content:"";
+  position:absolute;
+  bottom:-6px;
+  left:50%;
+  width:24px;
+  height:3px;
+  background:linear-gradient(90deg,#f59e0b,#a855f7);
+  transform:translateX(-50%);
+  border-radius:4px;
+}
+
+/* Micro interaction tilt */
+.achievement-card:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-6px) scale(1.02);
+}
+
+/* Mini cards neon focus */
+.achievement-mini-card.active {
+  box-shadow: 0 0 0 1px rgba(99,102,241,0.8),
+              0 12px 40px rgba(236,72,153,0.55);
+}
+
+
+/* ================== ACHIEVEMENT LAB (NEW MODERN WAY) ================== */
+/* Concept: Command-Center Panels + Spotlight Rail + Snap Sections */
+
+/* Section shell */
+#timeline .achievement-shell{
+  display:grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 0.8fr);
+  gap:18px;
+}
+@media(max-width:900px){
+  #timeline .achievement-shell{ grid-template-columns:1fr; }
+}
+
+/* Left: Spotlight Panel */
+#achievementDetail{
+  position:sticky;
+  top:96px;
+  border-radius:24px;
+}
+
+/* Command Header */
+.lab-header{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:10px;
+}
+.lab-title{
+  font-size:0.9rem;
+  letter-spacing:0.18em;
+  text-transform:uppercase;
+  color:#93c5fd;
+}
+.lab-indicator{
+  display:flex; gap:6px;
+}
+.lab-dot{
+  width:6px; height:6px; border-radius:50%;
+  background:#22c55e;
+  box-shadow:0 0 10px rgba(34,197,94,.9);
+}
+
+/* Spotlight Card Redesign */
+.achievement-card{
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.95), rgba(2,6,23,.9)),
+    radial-gradient(120% 120% at 0% 0%, rgba(99,102,241,.25), transparent 40%),
+    radial-gradient(120% 120% at 100% 100%, rgba(236,72,153,.25), transparent 40%);
+  border:1px solid rgba(148,163,184,.35);
+}
+
+/* Role + Impact bullets */
+.impact-list{
+  margin-top:8px;
+  padding-left:16px;
+}
+.impact-list li{
+  margin-bottom:6px;
+  font-size:.88rem;
+  color:#e5e7eb;
+}
+
+/* Right: Rail */
+.achievement-rail{
+  background:rgba(2,6,23,.9);
+  border:1px solid rgba(148,163,184,.35);
+  border-radius:22px;
+  padding:12px;
+  display:grid;
+  gap:10px;
+}
+
+/* Rail item */
+.rail-item{
+  display:grid;
+  grid-template-columns: 40px 1fr auto;
+  gap:10px;
+  align-items:center;
+  padding:10px;
+  border-radius:14px;
+  cursor:pointer;
+  transition:.25s;
+  border:1px solid rgba(148,163,184,.25);
+}
+.rail-item:hover{
+  transform:translateY(-2px);
+  box-shadow:0 10px 30px rgba(79,70,229,.35);
+}
+.rail-item.active{
+  background:linear-gradient(135deg,#4f46e5,#ec4899);
+  border-color:transparent;
+}
+.rail-icon{
+  width:36px;height:36px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  background:rgba(2,6,23,.9);
+}
+
+/* Snap Scroll Timeline */
+.achievement-timeline{
+  scroll-snap-type:x mandatory;
+}
+.timeline-step{
+  scroll-snap-align:center;
+}
+
+/* Stats become Radial Pills */
+.achievement-stat-pill{
+  border-radius:14px;
+  background:
+    radial-gradient(circle at 30% 30%, rgba(34,197,94,.25), transparent 40%),
+    rgba(2,6,23,.85);
+}
+
+
+/* ================== ACHIEVEMENT OS (FINAL EVOLUTION) ================== */
+
+/* OS layout upgrade */
+#timeline .achievement-shell{
+  grid-template-columns: minmax(0,1.4fr) minmax(0,0.6fr);
+}
+
+/* Context Panel */
+.achievement-context{
+  margin-top:14px;
+  padding:12px;
+  border-radius:18px;
+  background:rgba(2,6,23,.9);
+  border:1px solid rgba(148,163,184,.35);
+  display:grid;
+  gap:8px;
+}
+.context-row{
+  display:flex;
+  justify-content:space-between;
+  font-size:.78rem;
+  color:#e5e7eb;
+}
+.context-row span{
+  color:#93c5fd;
+}
+
+/* Signal Graph */
+.signal-graph{
+  height:90px;
+  border-radius:14px;
+  background:
+    linear-gradient(180deg, rgba(79,70,229,.25), transparent),
+    rgba(2,6,23,.95);
+  position:relative;
+  overflow:hidden;
+}
+.signal-line{
+  position:absolute;
+  bottom:0;
+  left:0;
+  width:200%;
+  height:100%;
+  background:
+    linear-gradient(90deg,
+      transparent,
+      rgba(34,197,94,.9),
+      transparent);
+  animation: signalMove 6s linear infinite;
+}
+@keyframes signalMove{
+  from{transform:translateX(0);}
+  to{transform:translateX(-50%);}
+}
+
+/* Mode Switch */
+.achievement-modes{
+  display:flex;
+  gap:6px;
+  margin-bottom:8px;
+}
+.mode-btn{
+  flex:1;
+  padding:6px;
+  font-size:.7rem;
+  border-radius:10px;
+  border:1px solid rgba(148,163,184,.4);
+  background:rgba(2,6,23,.85);
+  color:#e5e7eb;
+  cursor:pointer;
+}
+.mode-btn.active{
+  background:linear-gradient(135deg,#22c55e,#4f46e5);
+  border-color:transparent;
+}
+
+/* Ambient metrics */
+.ambient-metrics{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.metric-tile{
+  background:rgba(2,6,23,.9);
+  border:1px solid rgba(148,163,184,.35);
+  border-radius:14px;
+  padding:10px;
+  text-align:center;
+}
+.metric-value{
+  font-size:1.1rem;
+  font-weight:600;
+}
+.metric-label{
+  font-size:.65rem;
+  color:#93c5fd;
+}
+
+
+/* ================== ACHIEVEMENT OS v2 FIXES ================== */
+
+/* Timeline back to TOP */
+#timeline .achievement-shell{
+  grid-template-columns: 1fr;
+}
+#achievementTimeline{
+  margin-bottom:16px;
+}
+
+/* Spotlight + Utility layout */
+.achievement-lab-layout{
+  display:grid;
+  grid-template-columns: minmax(0,1.3fr) minmax(0,0.7fr);
+  gap:18px;
+}
+@media(max-width:900px){
+  .achievement-lab-layout{ grid-template-columns:1fr; }
+}
+
+/* Utility panel */
+.achievement-utility{
+  background:rgba(2,6,23,.9);
+  border:1px solid rgba(148,163,184,.35);
+  border-radius:22px;
+  padding:14px;
+  display:grid;
+  gap:12px;
+}
+
+/* Org logo */
+.org-logo-box{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  height:90px;
+  border-radius:16px;
+  background:rgba(15,23,42,.9);
+  border:1px dashed rgba(148,163,184,.5);
+}
+.org-logo-box img{
+  max-height:60px;
+  max-width:80%;
+  object-fit:contain;
+}
+
+/* Utility cards */
+.utility-card{
+  background:rgba(2,6,23,.95);
+  border:1px solid rgba(148,163,184,.35);
+  border-radius:16px;
+  padding:12px;
+}
+.utility-title{
+  font-size:.75rem;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#93c5fd;
+  margin-bottom:6px;
+}
+.utility-text{
+  font-size:.82rem;
+  color:#e5e7eb;
+}
+
+/* Header logo slot */
+.achievement-header{
+  display:grid;
+  grid-template-columns: 1fr auto;
+  align-items:center;
+}
+.achievement-org-logo{
+  width:46px;
+  height:46px;
+  border-radius:10px;
+  background:rgba(2,6,23,.9);
+  border:1px solid rgba(148,163,184,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.achievement-org-logo img{
+  max-width:32px;
+  max-height:32px;
+}
+
+
+/* ================== ACHIEVEMENT OS v3 – ALL MODE ================== */
+
+/* ALL overview grid */
+.all-overview{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+  gap:16px;
+  margin-top:20px;
+}
+.all-card{
+  position:relative;
+  border-radius:20px;
+  padding:16px;
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.95), rgba(2,6,23,.85)),
+    radial-gradient(120% 120% at 0% 0%, rgba(99,102,241,.25), transparent 40%);
+  border:1px solid rgba(148,163,184,.35);
+  cursor:pointer;
+  transition:.35s;
+}
+.all-card:hover{
+  transform:translateY(-6px) scale(1.02);
+  box-shadow:0 25px 70px rgba(79,70,229,.45);
+}
+.all-card-title{
+  font-weight:600;
+  margin-bottom:6px;
+}
+.all-card-meta{
+  font-size:.8rem;
+  color:#93c5fd;
+}
+.all-card-logo{
+  position:absolute;
+  top:12px;
+  right:12px;
+  width:36px;
+  height:36px;
+  border-radius:10px;
+  background:rgba(2,6,23,.9);
+  border:1px solid rgba(148,163,184,.45);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+.all-card-logo img{
+  max-width:22px;
+  max-height:22px;
+}
+
+/* Fade-in using IntersectionObserver */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+  transition:.6s ease;
+}
+.fade-in.visible{
+  opacity:1;
+  transform:none;
+}
+
+
+/* ================== ACHIEVEMENT OS v4 ================== */
+/* Concept: Narrative Layers + Magnetic Interaction + Insight Chips */
+
+/* Magnetic hover */
+[data-magnetic]{
+  transition: transform .2s ease;
+}
+
+/* Narrative layer */
+.narrative-layer{
+  margin-top:18px;
+  padding:14px;
+  border-radius:20px;
+  background:
+    linear-gradient(180deg, rgba(2,6,23,.92), rgba(2,6,23,.82)),
+    radial-gradient(100% 100% at 0% 0%, rgba(34,197,94,.18), transparent 45%);
+  border:1px solid rgba(148,163,184,.35);
+}
+.narrative-title{
+  font-size:.75rem;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:#86efac;
+  margin-bottom:6px;
+}
+.narrative-text{
+  font-size:.85rem;
+  color:#e5e7eb;
+  line-height:1.55;
+}
+
+/* Insight chips */
+.insight-chips{
+  display:flex;
+  flex-wrap:wrap;
+  gap:6px;
+  margin-top:10px;
+}
+.insight-chip{
+  font-size:.65rem;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(2,6,23,.9);
+  border:1px solid rgba(148,163,184,.35);
+  color:#93c5fd;
+}
+
+/* Cursor glow */
+.cursor-glow{
+  position:fixed;
+  width:120px;
+  height:120px;
+  pointer-events:none;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(99,102,241,.25), transparent 60%);
+  filter:blur(20px);
+  transform:translate(-50%,-50%);
+  z-index:9999;
+}
+
+/* Confidence meter */
+.confidence-meter{
+  margin-top:14px;
+}
+.meter-bar{
+  height:8px;
+  border-radius:8px;
+  background:rgba(148,163,184,.25);
+  overflow:hidden;
+}
+.meter-fill{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#22c55e,#4f46e5);
+  transition:width .8s ease;
+}
+.meter-label{
+  font-size:.7rem;
+  color:#93c5fd;
+  margin-top:4px;
+}
+
+
+/* ================= DRIVE MODE OVERLAY ================= */
+#driveOverlay{
+  position:fixed;
+  inset:0;
+  background:#000;
+  z-index:99999;
+  display:none;
+}
+#driveOverlay iframe{
+  width:100%;
+  height:100%;
+  border:none;
+}
+
+
+/* =========================
+   MOBILE NAV – FINAL FIX
+========================= */
+.mobile-menu-btn{
+  display:none;
+  background:rgba(255,255,255,0.12);
+  border:none;
+  border-radius:999px;
+  width:42px;height:42px;
+  color:#fff;
+  font-size:1.2rem;
+  cursor:pointer;
+}
+.mobile-nav{
+  position:fixed;
+  inset:0;
+  background:#050816;
+  z-index:4000;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:20px;
+  transform:translateY(-100%);
+  transition:transform .35s ease;
+}
+.mobile-nav.open{
+  transform:translateY(0);
+}
+.mobile-nav a{
+  color:#fff;
+  font-size:1.4rem;
+  text-decoration:none;
+  font-weight:500;
+}
+.close-mobile{
+  position:absolute;
+  top:18px; right:22px;
+  font-size:2.4rem;
+  background:none;border:none;
+  color:#fff; cursor:pointer;
+}
+
+@media(max-width:900px){
+  .mobile-menu-btn{display:flex;align-items:center;justify-content:center;}
+}
+
+
+/* ===== MOBILE TAP BLOCKER FIX (ROOT CAUSE) ===== */
+/* Decorative layers should NOT capture touches */
+.hero-orbit,
+#hero::before,
+#hero::after {
+  pointer-events: none !important;
+}
+
+/* Ensure CTA buttons are always tappable */
+#hero .cta-row,
+#hero .cta-btn {
+  position: relative;
+  z-index: 5;
+  pointer-events: auto !important;
+}
+
 </style>
 </head>
 <body data-theme="light">
@@ -1411,12 +2075,30 @@ footer a:hover{ color:var(--secondary-color); }
     <a data-target="contact">Contact</a>
   </div>
   <div class="nav-right">
+
+<button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open menu">
+  <i class="fas fa-bars"></i>
+</button>
+
     <button id="themeToggle">
       <i class="fas fa-moon"></i>
       <span>Dark</span>
     </button>
   </div>
 </nav>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobileNav" class="mobile-nav" aria-hidden="true">
+  <button class="close-mobile" aria-label="Close menu">&times;</button>
+  <a data-target="hero">Home</a>
+  <a data-target="about">About</a>
+  <a data-target="projects">Projects</a>
+  <a data-target="timeline">Achievements</a>
+  <a data-target="events">Events</a>
+  <a data-target="team">Teams</a>
+  <a data-target="contact">Contact</a>
+</div>
+
 
 <!-- HERO -->
 <div id="hero" class="page active">
@@ -1514,7 +2196,7 @@ footer a:hover{ color:var(--secondary-color); }
             <i class="fas fa-check-circle"></i>
             <span>
               Participated in a <strong>36 hours AI/ML Healthcare Hackathon</strong> at Parul University and
-              contributed to a hackathon winning project <strong>GhostKey – Q&A Platform</strong>.
+              contributed to a hackathon winning project <strong>GhostKey</strong>.
             </span>
           </div>
         </div>
@@ -1989,7 +2671,360 @@ footer a:hover{ color:var(--secondary-color); }
 </div>
 
 <!-- Typed.js -->
-<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.1.0/dist/typed.umd.js">
+/* === ACHIEVEMENTS FILTER INTERACTION === */
+const filters = document.querySelectorAll(".achievement-filter");
+filters.forEach(btn => {
+  btn.addEventListener("click", () => {
+    filters.forEach(b => b.classList.remove("active"));
+    btn.classList.add("active");
+    const type = btn.dataset.filter;
+    if (typeof renderAchievements === "function") {
+      renderAchievements(type);
+    }
+  });
+});
+
+
+/* ===== ACHIEVEMENT LAB BEHAVIOR ===== */
+(function(){
+  const detail = document.getElementById('achievementDetail');
+  if(detail){
+    const header = document.createElement('div');
+    header.className = 'lab-header';
+    header.innerHTML = '<div class="lab-title">ACHIEVEMENT LAB</div><div class="lab-indicator"><span class="lab-dot"></span><span class="lab-dot"></span><span class="lab-dot"></span></div>';
+    detail.prepend(header);
+  }
+
+  // Build rail from timeline steps
+  const timeline = document.getElementById('achievementTimeline');
+  if(timeline){
+    const rail = document.createElement('div');
+    rail.className = 'achievement-rail';
+    const steps = timeline.querySelectorAll('.timeline-step');
+    steps.forEach((s, i)=>{
+      const item = document.createElement('div');
+      item.className = 'rail-item' + (s.classList.contains('active')?' active':'');
+      item.innerHTML = `<div class="rail-icon">${s.querySelector('.timeline-dot').innerHTML}</div>
+                        <div>${s.querySelector('.timeline-label')?.innerText || 'Item'}</div>
+                        <div>›</div>`;
+      item.onclick = ()=> s.click();
+      rail.appendChild(item);
+    });
+    timeline.after(rail);
+  }
+})();
+
+
+/* ===== ACHIEVEMENT OS FEATURES ===== */
+(function(){
+  const detail = document.getElementById('achievementDetail');
+  if(!detail) return;
+
+  // Mode Switcher
+  const modes = document.createElement('div');
+  modes.className = 'achievement-modes';
+  modes.innerHTML = `
+    <button class="mode-btn active">Builder</button>
+    <button class="mode-btn">Leader</button>
+    <button class="mode-btn">Speaker</button>`;
+  detail.appendChild(modes);
+
+  // Signal graph
+  const graph = document.createElement('div');
+  graph.className = 'signal-graph';
+  graph.innerHTML = '<div class="signal-line"></div>';
+  detail.appendChild(graph);
+
+  // Context panel
+  const context = document.createElement('div');
+  context.className = 'achievement-context';
+  context.innerHTML = `
+    <div class="context-row"><div>Environment</div><span>Hackathon / Fest</span></div>
+    <div class="context-row"><div>Pressure Level</div><span>High</span></div>
+    <div class="context-row"><div>Impact Scope</div><span>Campus-wide</span></div>`;
+  detail.appendChild(context);
+
+  // Ambient metrics
+  const metrics = document.createElement('div');
+  metrics.className = 'ambient-metrics';
+  metrics.innerHTML = `
+    <div class="metric-tile"><div class="metric-value">36h</div><div class="metric-label">Max Sprint</div></div>
+    <div class="metric-tile"><div class="metric-value">400+</div><div class="metric-label">Participants</div></div>
+    <div class="metric-tile"><div class="metric-value">5+</div><div class="metric-label">Events</div></div>`;
+  detail.appendChild(metrics);
+
+  // Mode interaction
+  modes.querySelectorAll('.mode-btn').forEach(btn=>{
+    btn.onclick = ()=>{
+      modes.querySelectorAll('.mode-btn').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+    };
+  });
+})();
+
+
+/* ===== ACHIEVEMENT OS v2 LOGIC ===== */
+(function(){
+  const detail = document.getElementById('achievementDetail');
+  if(!detail) return;
+
+  const children = Array.from(detail.children);
+  const wrapper = document.createElement('div');
+  wrapper.className = 'achievement-lab-layout';
+
+  const left = document.createElement('div');
+  const right = document.createElement('div');
+  right.className = 'achievement-utility';
+
+  children.forEach(c=> left.appendChild(c));
+  detail.appendChild(wrapper);
+  wrapper.appendChild(left);
+  wrapper.appendChild(right);
+
+  right.innerHTML = `
+    <div class="org-logo-box" id="orgLogoBox">
+      <span style="font-size:.75rem;color:#94a3b8;">Organization Logo</span>
+    </div>
+    <div class="utility-card">
+      <div class="utility-title">Role Snapshot</div>
+      <div class="utility-text" id="roleSnapshot">—</div>
+    </div>
+    <div class="utility-card">
+      <div class="utility-title">Impact Scale</div>
+      <div class="utility-text" id="impactScale">—</div>
+    </div>
+  `;
+
+  const logoMap = {
+    agnitio: "images/CHARUSAT.png",
+    techtonic: "images/charusat.png",
+    ghostkey: "images/parul.png",
+    gdg: "images/gdg.png"
+  };
+
+  const originalRender = window.renderAchievementDetail;
+  if(typeof originalRender === "function"){
+    window.renderAchievementDetail = function(item){
+      originalRender(item);
+      const logoBox = document.getElementById('orgLogoBox');
+      const roleSnap = document.getElementById('roleSnapshot');
+      const impactSnap = document.getElementById('impactScale');
+
+      if(logoMap[item.id]){
+        logoBox.innerHTML = `<img src="${logoMap[item.id]}" alt="logo">`;
+      } else {
+        logoBox.innerHTML = '<span style="font-size:.75rem;color:#94a3b8;">No Logo</span>';
+      }
+      roleSnap.textContent = item.role || "—";
+      impactSnap.textContent = item.impact || "—";
+    };
+  }
+})();
+
+
+/* ===== ACHIEVEMENT OS v3 – ALL MODE LOGIC ===== */
+(function(){
+  const filterAllBtn = document.querySelector('[data-filter="all"]');
+  const timeline = document.getElementById('achievementTimeline');
+  const detail = document.getElementById('achievementDetail');
+
+  if(!filterAllBtn || !timeline || !detail) return;
+
+  const logoMap = {
+    agnitio: "images/charusat.png",
+    techtonic: "images/charusat.png",
+    ghostkey: "images/parul.png",
+    gdg: "images/gdg.png"
+  };
+
+  filterAllBtn.addEventListener('click', ()=>{
+    timeline.style.display = "none";
+    detail.style.display = "none";
+
+    let overview = document.getElementById('allOverview');
+    if(!overview){
+      overview = document.createElement('div');
+      overview.id = 'allOverview';
+      overview.className = 'all-overview';
+      timeline.after(overview);
+
+      if(window.achievements){
+        achievements.forEach(item=>{
+          const card = document.createElement('div');
+          card.className = 'all-card fade-in';
+          card.innerHTML = `
+            <div class="all-card-logo">
+              ${logoMap[item.id] ? `<img src="${logoMap[item.id]}">` : ''}
+            </div>
+            <div class="all-card-title">${item.title}</div>
+            <div class="all-card-meta">${item.subtitle || ''}</div>
+          `;
+          card.onclick = ()=>{
+            overview.remove();
+            timeline.style.display = "";
+            detail.style.display = "";
+            renderAchievementDetail(item);
+          };
+          overview.appendChild(card);
+        });
+      }
+
+      /* IntersectionObserver for animation */
+      const observer = new IntersectionObserver(entries=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting) e.target.classList.add('visible');
+        });
+      }, {threshold:0.2});
+
+      overview.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+    }
+  });
+})();
+
+
+/* ===== ACHIEVEMENT OS v4 FEATURES ===== */
+(function(){
+
+/* Magnetic hover */
+document.querySelectorAll('[data-magnetic]').forEach(el=>{
+  el.addEventListener('mousemove', e=>{
+    const rect = el.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width/2;
+    const y = e.clientY - rect.top - rect.height/2;
+    el.style.transform = `translate(${x*0.08}px, ${y*0.08}px)`;
+  });
+  el.addEventListener('mouseleave', ()=>{
+    el.style.transform = '';
+  });
+});
+
+/* Cursor glow */
+const glow = document.createElement('div');
+glow.className = 'cursor-glow';
+document.body.appendChild(glow);
+document.addEventListener('mousemove', e=>{
+  glow.style.left = e.clientX + 'px';
+  glow.style.top = e.clientY + 'px';
+});
+
+/* Narrative + insights injection */
+const detail = document.getElementById('achievementDetail');
+if(detail){
+  const narrative = document.createElement('div');
+  narrative.className = 'narrative-layer';
+  narrative.innerHTML = `
+    <div class="narrative-title">Behind the Scenes</div>
+    <div class="narrative-text" id="narrativeText">
+      Select an achievement to reveal decision-making, pressure points, and execution strategy.
+    </div>
+    <div class="insight-chips" id="insightChips"></div>
+    <div class="confidence-meter">
+      <div class="meter-bar"><div class="meter-fill" id="confidenceFill"></div></div>
+      <div class="meter-label">Execution Confidence</div>
+    </div>
+  `;
+  detail.appendChild(narrative);
+}
+
+/* Hook into render */
+const originalRender = window.renderAchievementDetail;
+if(typeof originalRender === "function"){
+  window.renderAchievementDetail = function(item){
+    originalRender(item);
+
+    const narrativeText = document.getElementById('narrativeText');
+    const chips = document.getElementById('insightChips');
+    const meter = document.getElementById('confidenceFill');
+
+    if(narrativeText){
+      narrativeText.textContent = item.narrative || 
+        "Handled planning, coordination, and execution under real-time constraints.";
+    }
+
+    if(chips){
+      chips.innerHTML = "";
+      (item.insights || ["Leadership","Execution","Ownership"]).forEach(i=>{
+        const chip = document.createElement('span');
+        chip.className = 'insight-chip';
+        chip.textContent = i;
+        chips.appendChild(chip);
+      });
+    }
+
+    if(meter){
+      meter.style.width = (item.confidence || 85) + "%";
+    }
+  };
+}
+
+})();
+
+
+/* ===== DRIVE MODE INTEGRATION ===== */
+(function(){
+  const overlay = document.getElementById("driveOverlay");
+
+  // find Highlight Reels filter or card
+  document.querySelectorAll("[data-filter='reels'], .highlight-reels").forEach(el=>{
+    el.addEventListener("click", e=>{
+      e.preventDefault();
+      overlay.style.display = "block";
+    });
+  });
+
+  // escape key to exit
+  document.addEventListener("keydown", e=>{
+    if(e.key === "Escape"){
+      overlay.style.display = "none";
+    }
+  });
+})();
+
+
+/* ===== DRIVE MODE DESTINATION ENABLED ===== */
+(function(){
+  const overlay = document.getElementById("driveOverlay");
+  const iframe = overlay.querySelector("iframe");
+
+  function openDrive(to){
+    iframe.src = `drive/drive.html?to=${to}`;
+    overlay.style.display = "block";
+  }
+
+  // Highlight Reels (start)
+  document.querySelectorAll("[data-filter='reels'], .highlight-reels").forEach(el=>{
+    el.addEventListener("click", e=>{
+      e.preventDefault();
+      openDrive("reels");
+    });
+  });
+
+  // Individual achievements (map ids)
+  const map = {
+    agnitio: "agnitio",
+    techtonic: "agnitio",
+    ghostkey: "hackathon",
+    gdg: "gdg"
+  };
+
+  document.querySelectorAll("[data-achievement]").forEach(card=>{
+    const key = card.dataset.achievement;
+    if(map[key]){
+      card.addEventListener("click", ()=> openDrive(map[key]));
+    }
+  });
+
+  // ESC to exit
+  document.addEventListener("keydown", e=>{
+    if(e.key === "Escape"){
+      overlay.style.display = "none";
+      iframe.src = "";
+    }
+  });
+})();
+
+</script>
 
 <script>
 /* Theme toggle */
@@ -2053,7 +3088,7 @@ function renderProjects(){
         <div class="project-tags">
           ${(proj.tags||[]).map(t=>`<span class="project-tag">${t}</span>`).join('')}
         </div>
-      </div>`; 
+      </div>`;
     grid.appendChild(card);
   });
 }
@@ -2082,13 +3117,14 @@ const achievements = [
     icon: "fas fa-fire",
     title: "Agnitio 2025 – Event Glimpses",
     subtitle: "Coordinator & handling for a major college fest",
+    
     short: "Agnitio 2025",
     tagline: "Fest coordination & handling",
     pills: ["Agnitio 2025", "Event Coordination", "On-ground Handling"],
     description: "Some glimpses from Agnitio 2025, where I handled coordination, volunteers, and on-ground event flow. These frames capture the energy, stage moments, and behind-the-scenes work that went into making the fest run smoothly.",
-     media: [
-      { type: "video", src: "", badge: "Video" },
-      { type: "image", src: "images/agnitio2.jpg", badge: "Thumbnail" }
+    media: [
+      { type: "video", src: "images/agnitio_glimpse.mp4", badge: "Video" },
+      { type: "image", src: "images/agnitio4.jpg", badge: "Glimpse" }
     ],
     meta: "Event: Agnitio 2025 · Role: Coordinator & Handling · Category: College Fest"
   },
@@ -2113,11 +3149,11 @@ const achievements = [
     type: "hackathon",
     icon: "fas fa-trophy",
     title: "GhostKey – Hackathon Winning Project",
-    subtitle: "Winner – Minimal Q&A Forum Platform",
+    subtitle: "Winner – Biometric System base Platform",
     short: "GhostKey – Winning Project",
     tagline: "Hackathon win",
-    pills: ["Hackathon Winner", "GhostKey – Q&A Platform"],
-    description: "Our project “GhostKey – Minimal Q&A Forum Platform” won the Hackathon prize. The focus was on a clean, distraction-free interface that makes asking and answering questions fast and simple.",
+    pills: ["Hackathon Winner", "GhostKey – Key Logger"],
+    description: "Our project “GhostKey – Key Logger Biometric System base Platform ” won the Hackathon prize. A biometric security system integrating Ghost Keylogger detection for advanced threat prevention.",
     media: [
       { type: "video", src: "images/WhatsApp Video 2025-09-14 at 8.30.28 PM.mp4", badge: "Video" },
       { type: "image", src: "images/parul.jpeg", badge: "Thumbnail" }
@@ -2593,6 +3629,75 @@ document.addEventListener('DOMContentLoaded', ()=>{
   });
 });
 </script>
+
+<!-- Drive Mode Overlay -->
+<div id="driveOverlay">
+  <iframe src="drive/drive.html"></iframe>
+</div>
+
+
+<script>
+(function(){
+  const btn = document.getElementById('mobileMenuBtn');
+  const drawer = document.getElementById('mobileNav');
+  if(!btn || !drawer) return;
+
+  const closeBtn = drawer.querySelector('.close-mobile');
+
+  function openNav(){
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden','false');
+    document.body.style.overflow='hidden';
+  }
+  function closeNav(){
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden','true');
+    document.body.style.overflow='';
+  }
+
+  btn.addEventListener('click', openNav);
+  closeBtn.addEventListener('click', closeNav);
+
+  drawer.querySelectorAll('a[data-target]').forEach(a=>{
+    a.addEventListener('click', ()=>{
+      closeNav();
+      // trigger existing navigation logic
+      const target = a.getAttribute('data-target');
+      const navLink = document.querySelector('nav a[data-target="'+target+'"]');
+      if(navLink) navLink.click();
+    });
+  });
+})();
+</script>
+
+
+<script>
+/* ===== HERO CTA HARD FIX (MOBILE SAFE) ===== */
+(function(){
+  function goTo(target){
+    if(!target) return;
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const page = document.getElementById(target);
+    if(page) page.classList.add('active');
+
+    document.querySelectorAll('nav a').forEach(a=>a.classList.remove('active-link'));
+    const navLink = document.querySelector('nav a[data-target="'+target+'"]');
+    if(navLink) navLink.classList.add('active-link');
+
+    window.scrollTo({top:0, behavior:'smooth'});
+  }
+
+  // Explicitly bind HERO buttons
+  document.querySelectorAll('#hero .cta-btn').forEach(btn=>{
+    btn.addEventListener('click', function(e){
+      e.preventDefault();
+      e.stopPropagation();
+      goTo(this.getAttribute('data-target'));
+    }, {passive:false});
+  });
+})();
+</script>
+
 </body>
-</html>
+</html
 
