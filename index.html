@@ -4,20 +4,20 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sapan Desai — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;700&family=Syne:wght@400;700;800;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --black:#030308;--dark:#0a0a14;--card:#0f0f1e;
-  --g1:#00f5a0;--g2:#00b4d8;--g3:#7b2fff;--g4:#ff3c6e;
-  --text:#f0f0ff;--muted:#5a5a7a;
-  --mono:'JetBrains Mono',monospace;--head:'Syne',sans-serif;
+  --black:#0d1117;--dark:#161b22;--card:#21262d;
+  --g1:#58a6ff;--g2:#1f6feb;--g3:#8b949e;--g4:#f85149;
+  --text:#c9d1d9;--muted:#8b949e;
+  --mono:'JetBrains Mono',monospace;--head:'Inter',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--text);font-family:var(--head);overflow-x:hidden;cursor:none;line-height:1.6}
-#cur{position:fixed;width:8px;height:8px;background:var(--g1);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:width .2s,height .2s}
-#cur-trail{position:fixed;width:32px;height:32px;border:1px solid rgba(0,245,160,.4);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%)}
-#hero-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+body{background:var(--black);color:var(--text);font-family:var(--head);overflow-x:hidden;cursor:auto;line-height:1.6}
+#cur{display:none}
+#cur-trail{display:none}
+#hero-canvas{display:none}
 
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:1rem 3rem;background:rgba(3,3,8,.7);backdrop-filter:blur(24px);border-bottom:1px solid rgba(0,245,160,.06)}
