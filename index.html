@@ -8,13 +8,14 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --black:#0f0f0f;--dark:#1a1a1a;--card:#232323;
-  --g1:#4a9eff;--g2:#3b82f6;--g3:#94a3b8;--g4:#ef4444;
-  --text:#e5e5e5;--muted:#9ca3af;
+  --black:#000000;--dark:#0a0a0a;--card:#111111;
+  --g1:#10b981;--g2:#059669;--g3:#6b7280;--g4:#ef4444;
+  --text:#ffffff;--muted:#a1a1aa;
+  --border:#1f1f1f;
   --mono:'Fira Code',monospace;--head:'Poppins',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--text);font-family:var(--head);overflow-x:hidden;cursor:auto;line-height:1.6}
+body{background:var(--black);color:var(--text);font-family:var(--head);overflow-x:hidden;cursor:auto;line-height:1.6;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px}
 #cur{display:none}
 #cur-trail{display:none}
 #hero-canvas{display:none}
@@ -96,11 +97,11 @@ section.main-sec{position:relative;z-index:10;padding:8rem 4rem;border-top:1px s
 
 /* PROJECTS */
 .proj-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
-.proj-card{background:var(--card);border:1px solid rgba(255,255,255,.05);padding:2rem;position:relative;overflow:hidden;transition:all .3s;cursor:default;border-radius:4px}
-.proj-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,245,160,.04),rgba(123,47,255,.04));opacity:0;transition:opacity .3s;pointer-events:none}
-.proj-card:hover{border-color:rgba(0,245,160,.2);transform:translateY(-6px);box-shadow:0 30px 60px rgba(0,0,0,.4),0 0 30px rgba(0,245,160,.05)}
+.proj-card{background:var(--card);border:1px solid var(--border);padding:2rem;position:relative;overflow:hidden;transition:all .3s;cursor:default;border-radius:12px}
+.proj-card::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(16,185,129,.03),rgba(0,0,0,0));opacity:0;transition:opacity .3s;pointer-events:none}
+.proj-card:hover{border-color:rgba(16,185,129,.3);transform:translateY(-6px);box-shadow:0 20px 40px rgba(0,0,0,.5)}
 .proj-card:hover::after{opacity:1}
-.proj-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;background:linear-gradient(135deg,rgba(0,245,160,.04),rgba(0,0,0,0));border-color:rgba(0,245,160,.15)}
+.proj-card.featured{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:center;background:var(--card);border-color:var(--border)}
 .proj-num{font-family:var(--mono);font-size:.65rem;color:var(--g3);letter-spacing:.2em;margin-bottom:1rem}
 .proj-title{font-size:1.3rem;font-weight:800;margin-bottom:.75rem;letter-spacing:-.02em}
 .proj-desc{font-family:var(--mono);font-size:.78rem;color:var(--muted);line-height:1.8;margin-bottom:1.5rem}
@@ -154,11 +155,11 @@ section.main-sec{position:relative;z-index:10;padding:8rem 4rem;border-top:1px s
 
 /* BENTO */
 .bento-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.bento-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:8px;padding:1.25rem;position:relative;overflow:hidden;transition:all .3s;cursor:default}
-.bento-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.4)}
-.bento-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--ba,linear-gradient(90deg,transparent,#00f5a0,transparent));opacity:0;transition:opacity .3s}
+.bento-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;position:relative;overflow:hidden;transition:all .3s;cursor:default}
+.bento-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(0,0,0,.5);border-color:rgba(16,185,129,.3)}
+.bento-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.5),transparent);opacity:0;transition:opacity .3s}
 .bento-card:hover::before{opacity:1}
-.bento-num{font-size:2.4rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#00f5a0,#00b4d8);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.bento-num{font-size:2.4rem;font-weight:900;line-height:1;background:linear-gradient(135deg,#10b981,#059669);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
 .bento-suffix{font-size:1.2rem;font-weight:900;color:var(--g3);margin-left:1px;-webkit-text-fill-color:var(--g3)}
 .bento-label{font-family:var(--mono);font-size:.58rem;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-top:.4rem;line-height:1.4}
 .bento-icon{position:absolute;right:1rem;top:.9rem;font-size:1.3rem;opacity:.1}
