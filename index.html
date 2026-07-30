@@ -10,12 +10,12 @@
 :root{
   --black:#000000;--dark:#0a0a0a;--card:#111111;
   --g1:#10b981;--g2:#059669;--g3:#6b7280;--g4:#ef4444;
-  --text:#ffffff;--muted:#a1a1aa;
+  --text:#ffffff;--muted:#c4c4cc;
   --border:#1f1f1f;
   --mono:'Fira Code',monospace;--head:'Poppins',sans-serif;
 }
 html{scroll-behavior:smooth}
-body{background:var(--black);color:var(--text);font-family:var(--head);overflow-x:hidden;cursor:auto;line-height:1.6;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px}
+body{background:var(--black);color:var(--text);font-family:var(--head);overflow-x:hidden;cursor:auto;line-height:1.7;font-size:17px;background-image:radial-gradient(rgba(255,255,255,.05) 1px,transparent 1px);background-size:20px 20px}
 #cur{display:none}
 #cur-trail{display:none}
 #hero-canvas{display:none}
@@ -39,8 +39,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .hero-name{font-size:clamp(4rem,12vw,9rem);font-weight:900;letter-spacing:-.04em;line-height:.9;margin-bottom:1rem}
 .hero-name .line1{background:linear-gradient(135deg,#fff 30%,rgba(255,255,255,.3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;display:block}
 .hero-name .line2{display:block;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g3));-webkit-background-clip:text;-webkit-text-fill-color:transparent;filter:drop-shadow(0 0 40px rgba(0,245,160,.3))}
-.hero-subtitle{font-family:var(--mono);font-size:.85rem;color:var(--muted);letter-spacing:.2em;text-transform:uppercase;margin:1.5rem 0 2.5rem}
-.hero-subtitle span{color:var(--g1)}
+.hero-subtitle{font-family:var(--head);font-size:1.1rem;color:var(--muted);letter-spacing:.02em;margin:1.5rem 0 2.5rem;font-weight:400;line-height:1.6}
+.hero-subtitle span{color:var(--g1);font-weight:500}
 .hero-pills{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
 .pill{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1.1rem;border:1px solid rgba(0,245,160,.15);color:var(--muted);background:rgba(0,245,160,.03);border-radius:2px;transition:all .25s;cursor:default}
 .pill:hover{color:var(--g1);border-color:var(--g1);background:rgba(0,245,160,.08);transform:translateY(-2px)}
@@ -127,7 +127,7 @@ section.main-sec{position:relative;z-index:10;padding:8rem 4rem;border-top:1px s
 .tl-dot.blue{background:var(--g2);box-shadow:0 0 15px rgba(0,180,216,.5)}
 .tl-year{font-family:var(--mono);font-size:.65rem;color:var(--g1);letter-spacing:.2em;text-transform:uppercase;margin-bottom:.3rem}
 .tl-title{font-size:1.1rem;font-weight:800;margin-bottom:.3rem;letter-spacing:-.01em}
-.tl-sub{font-family:var(--mono);font-size:.75rem;color:var(--muted);margin-bottom:.5rem}
+.tl-sub{font-family:var(--head);font-size:.9rem;color:var(--muted);margin-bottom:.5rem;line-height:1.6}
 .tl-badge{display:inline-block;font-family:var(--mono);font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:2px}
 .badge-win{background:rgba(0,245,160,.1);color:var(--g1);border:1px solid rgba(0,245,160,.2)}
 .badge-org{background:rgba(0,180,216,.1);color:var(--g2);border:1px solid rgba(0,180,216,.2)}
@@ -283,7 +283,7 @@ footer{background:var(--black);padding:2rem 4rem;display:flex;align-items:center
     <span class="line1">SAPAN</span>
     <span class="line2">DESAI</span>
   </h1>
-  <div class="hero-subtitle">Full-Stack Dev <span>·</span> Hackathon Finalist <span>·</span> Event Lead</div>
+  <div class="hero-subtitle">Full-Stack Developer building scalable web applications <span>·</span> 3× Hackathon Finalist <span>·</span> Event Lead</div>
   <div class="hero-pills">
     <span class="pill">HTML · CSS · JS</span>
     <span class="pill">C# · Python · Node.js</span>
