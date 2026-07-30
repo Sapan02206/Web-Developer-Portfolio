@@ -1,9 +1,9 @@
 # 💼 Sapan Desai - Portfolio
 
-![Portfolio Banner](https://img.shields.io/badge/Portfolio-Live-00f5a0?style=for-the-badge)
-![Status](https://img.shields.io/badge/Status-Available%20for%20Hire-00b4d8?style=for-the-badge)
+![Portfolio Banner](https://img.shields.io/badge/Portfolio-Live-10b981?style=for-the-badge)
+![Status](https://img.shields.io/badge/Status-Available%20for%20Hire-10b981?style=for-the-badge)
 
-> A modern, interactive developer portfolio showcasing my journey as a Full-Stack Developer, Hackathon Finalist, and Event Lead.
+> A modern, professional developer portfolio showcasing my journey as a Full-Stack Developer, 3× Hackathon Finalist, and Event Lead.
 
 ## 🌐 Live Demo
 
@@ -11,13 +11,25 @@
 
 ## ✨ Features
 
+- **Dark Bento Design** - Vercel-inspired theme with emerald accents
 - **Interactive Terminal** - Chat with my portfolio through a custom terminal interface
 - **Dynamic Skills Visualization** - Orbital display of tech stack with animated skill bars
 - **Project Showcase** - Featured hackathon projects and personal work
 - **Timeline Journey** - Visual representation of achievements and milestones
-- **Custom Cursor Effects** - Smooth, animated cursor for enhanced UX
+- **Subtle Grid Background** - Professional dot pattern overlay
 - **Fully Responsive** - Optimized for all devices and screen sizes
-- **Modern Design** - Cyberpunk-inspired aesthetic with gradient accents
+- **Professional Typography** - Poppins font for excellent readability
+- **Bento Cards** - Clean, modern card design with smooth animations
+
+## 🎨 Design Philosophy
+
+**Theme:** Dark Bento / Vercel-inspired
+- **Pure Black Background** (#000000) with subtle grid pattern
+- **Emerald Green Accent** (#10b981) for professional highlights
+- **White Typography** (#ffffff) for maximum contrast
+- **Enhanced Readability** - Optimized font sizes and line heights
+- **Better Contrast** - Improved muted text visibility (#c4c4cc)
+- **Reduced Spacing** - 17% less padding for better content density
 
 ## 🛠️ Tech Stack
 
@@ -27,9 +39,10 @@
 - **JavaScript (Vanilla)** - Interactive terminal and dynamic content
 
 ### Design
-- **Google Fonts** - JetBrains Mono & Syne
-- **Custom Color Palette** - Neon gradients (Green, Blue, Purple, Pink)
-- **CSS Animations** - Smooth transitions and hover effects
+- **Google Fonts** - Poppins (body), Fira Code (code)
+- **Color Palette** - Pure black, emerald green, white
+- **Bento Cards** - Modern card-based layout
+- **CSS Grid** - Subtle dot pattern background
 
 ## 🚀 Projects Highlighted
 
@@ -71,9 +84,10 @@ B.Tech in Computer Science Engineering
 
 ## 📫 Connect With Me
 
-- **Email:** [Your Email]
-- **LinkedIn:** [Your LinkedIn]
+- **Email:** sapan022006@gmail.com
+- **LinkedIn:** [Sapan Desai](https://www.linkedin.com/in/sapan-desai-b83799234/)
 - **GitHub:** [@Sapan02206](https://github.com/Sapan02206)
+- **Instagram:** [@code_with_sapan](https://www.instagram.com/code_with_sapan)
 - **Location:** Gujarat, India
 
 ## 💡 Terminal Commands
@@ -86,15 +100,28 @@ Try these commands in the portfolio terminal:
 - `contact` - Get in touch
 - `help` - List all commands
 
-## 🎨 Design Philosophy
+## 🎨 Design System
 
-This portfolio embraces a **cyberpunk aesthetic** with:
-- Dark mode by default
-- Neon gradient accents
-- Monospace typography for code elements
-- Custom cursor animations
-- Terminal-inspired interactions
-- Smooth scroll and hover effects
+### Colors
+```css
+--black: #000000      /* Pure black background */
+--card: #111111       /* Bento card background */
+--text: #ffffff       /* Primary text */
+--muted: #c4c4cc      /* Secondary text (improved contrast) */
+--accent: #10b981     /* Emerald green accent */
+--border: #1f1f1f     /* Subtle borders */
+```
+
+### Typography
+- **Body:** Poppins (400, 500, 600, 700, 800)
+- **Code:** Fira Code (400, 500, 600)
+- **Base Size:** 17px
+- **Line Height:** 1.7
+
+### Spacing
+- **Sections:** 5rem vertical padding
+- **Cards:** 12px border-radius
+- **Grid Pattern:** 20px × 20px dots
 
 ## 📱 Responsive Design
 
@@ -132,8 +159,8 @@ If you like this portfolio, please give it a ⭐️ on GitHub!
 **Built with 💚 by Sapan Desai**
 
 [![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/Sapan02206)
-[![Portfolio](https://img.shields.io/badge/Portfolio-00f5a0?style=for-the-badge&logo=google-chrome&logoColor=black)](https://sapan02206.github.io/Web-Developer-Portfolio/)
+[![Portfolio](https://img.shields.io/badge/Portfolio-10b981?style=for-the-badge&logo=google-chrome&logoColor=black)](https://sapan02206.github.io/Web-Developer-Portfolio/)
 
-*Open for opportunities • Available for hire*
+*Full-Stack Developer building scalable web applications • 3× Hackathon Finalist • Available for hire*
 
 </div>
