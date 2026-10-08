@@ -3,7 +3,57 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sapan Desai — Portfolio</title>
+<title>Sapan Desai — Full-Stack Developer | CHARUSAT</title>
+
+<!-- ═══ SEO META ═══ -->
+<meta name="description" content="Sapan Desai — BCA student & Full-Stack Developer at CHARUSAT. Builds web apps with Node.js, MongoDB, React & JavaScript. Google Gemini Student Ambassador. 4+ national hackathons.">
+<meta name="keywords" content="Sapan Desai, Full Stack Developer, Web Developer, Node.js, MongoDB, JavaScript, React, CHARUSAT, CMPICA, Google Gemini Ambassador, Hackathon, Portfolio, Gujarat">
+<meta name="author" content="Sapan Desai">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://sapan02206.github.io/Web-DeveloperPortfolio/">
+
+<!-- ═══ Open Graph (Facebook / LinkedIn) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://sapan02206.github.io/Web-DeveloperPortfolio/">
+<meta property="og:title" content="Sapan Desai — Full-Stack Developer">
+<meta property="og:description" content="BCA student & Full-Stack Developer at CHARUSAT. Node.js · MongoDB · JavaScript · 4+ Hackathons · Google Gemini Ambassador.">
+<meta property="og:image" content="https://sapan02206.github.io/Web-DeveloperPortfolio/og-image.png">
+<meta property="og:site_name" content="Sapan Desai Portfolio">
+<meta property="og:locale" content="en_IN">
+
+<!-- ═══ Twitter Card ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sapan Desai — Full-Stack Developer">
+<meta name="twitter:description" content="BCA student & Full-Stack Developer at CHARUSAT. Node.js · MongoDB · JavaScript · 4+ Hackathons · Google Gemini Ambassador.">
+<meta name="twitter:image" content="https://sapan02206.github.io/Web-DeveloperPortfolio/og-image.png">
+
+<!-- ═══ JSON-LD Structured Data ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Sapan Desai",
+  "jobTitle": "Full-Stack Developer",
+  "url": "https://sapan02206.github.io/Web-DeveloperPortfolio/",
+  "email": "sapan022006@gmail.com",
+  "telephone": "+919409166891",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Nadiad",
+    "addressRegion": "Gujarat",
+    "addressCountry": "IN"
+  },
+  "alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "Charotar University of Science and Technology (CHARUSAT)"
+  },
+  "knowsAbout": ["HTML", "CSS", "JavaScript", "Node.js", "MongoDB", "React", "Express.js", "Git", "Nodemailer"],
+  "sameAs": [
+    "https://in.linkedin.com/in/sapan-desai",
+    "https://github.com/Sapan02206"
+  ]
+}
+</script>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -29,10 +79,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .nav-links a:hover{color:var(--g1)}
 .nav-status{display:flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.65rem;color:var(--g1);letter-spacing:.1em}
 .nav-status::before{content:'';display:block;width:6px;height:6px;background:var(--g1);border-radius:50%;box-shadow:0 0 8px var(--g1);animation:pulse 2s ease infinite}
+.nav-resume-btn{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.4rem 1rem;border:1px solid rgba(0,245,160,.35);color:var(--g1);text-decoration:none;display:inline-flex;align-items:center;gap:.4rem;border-radius:3px;transition:all .2s;background:rgba(0,245,160,.04)}
+.nav-resume-btn:hover{background:rgba(0,245,160,.12);border-color:var(--g1);box-shadow:0 0 16px rgba(0,245,160,.15);transform:translateY(-1px)}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
 
 /* HERO */
-#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;z-index:10;text-align:center;padding:0 2rem;flex-direction:column}
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;z-index:10;text-align:center;padding:6rem 2rem 5rem;flex-direction:column}
 .hero-eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--g1);margin-bottom:2rem;display:flex;align-items:center;gap:1rem}
 .hero-eyebrow::before,.hero-eyebrow::after{content:'';display:block;width:50px;height:1px;background:linear-gradient(90deg,transparent,var(--g1))}
 .hero-eyebrow::after{background:linear-gradient(90deg,var(--g1),transparent)}
@@ -44,12 +96,12 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .hero-pills{display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;margin-bottom:3rem}
 .pill{font-family:var(--mono);font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;padding:.45rem 1.1rem;border:1px solid rgba(0,245,160,.15);color:var(--muted);background:rgba(0,245,160,.03);border-radius:2px;transition:all .25s;cursor:default}
 .pill:hover{color:var(--g1);border-color:var(--g1);background:rgba(0,245,160,.08);transform:translateY(-2px)}
-.hero-cta-row{display:flex;gap:1rem;justify-content:center}
+.hero-cta-row{display:flex;gap:1rem;justify-content:center;position:relative;z-index:6}
 .cta-main{font-family:var(--mono);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;padding:.8rem 2.2rem;background:var(--g1);color:#000;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,0 100%);transition:all .2s}
 .cta-main:hover{background:#00d98a;transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,245,160,.25)}
 .cta-sec{font-family:var(--mono);font-size:.75rem;letter-spacing:.15em;text-transform:uppercase;padding:.8rem 2.2rem;background:transparent;color:var(--text);border:1px solid rgba(255,255,255,.1);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;transition:all .2s}
 .cta-sec:hover{border-color:var(--g3);color:var(--g3);transform:translateY(-2px)}
-.scroll-down{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.scroll-down{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;color:var(--muted);text-transform:uppercase;pointer-events:none;z-index:5}
 .scroll-line{width:1px;height:50px;background:linear-gradient(var(--g1),transparent);animation:scrollanim 2s ease infinite}
 @keyframes scrollanim{0%{height:0;opacity:0}50%{height:50px;opacity:1}100%{height:50px;opacity:0}}
 
@@ -238,12 +290,29 @@ footer{background:var(--black);padding:2rem 4rem;display:flex;align-items:center
 .f-copy{font-family:var(--mono);font-size:.65rem;color:var(--muted);letter-spacing:.08em}
 .f-copy span{color:var(--g1)}
 
+/* RESUME CTA CARD */
+.resume-cta-wrap{margin-top:3.5rem;max-width:720px;margin-left:auto;margin-right:auto}
+.resume-cta-card{background:rgba(16,185,129,.03);border:1px solid rgba(16,185,129,.18);border-radius:12px;padding:2rem 2.5rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s}
+.resume-cta-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,rgba(16,185,129,.6),transparent)}
+.resume-cta-card:hover{border-color:rgba(16,185,129,.35);box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 60px rgba(16,185,129,.04)}
+.resume-cta-label{font-family:var(--mono);font-size:.58rem;color:var(--g1);letter-spacing:.25em;text-transform:uppercase;margin-bottom:.5rem}
+.resume-cta-title{font-size:1.35rem;font-weight:900;letter-spacing:-.02em;margin-bottom:.25rem}
+.resume-cta-sub{font-family:var(--mono);font-size:.72rem;color:var(--muted);margin-bottom:1rem;line-height:1.6}
+.resume-cta-tags{display:flex;flex-wrap:wrap;gap:.4rem}
+.resume-cta-tags span{font-family:var(--mono);font-size:.58rem;letter-spacing:.08em;text-transform:uppercase;padding:.2rem .6rem;background:rgba(0,245,160,.06);color:var(--g1);border:1px solid rgba(0,245,160,.15);border-radius:2px}
+.resume-cta-right{display:flex;flex-direction:column;gap:.75rem;flex-shrink:0}
+.resume-view-btn{font-family:var(--mono);font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.7rem 1.6rem;background:var(--g1);color:#000;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;border-radius:3px;transition:all .2s;white-space:nowrap}
+.resume-view-btn:hover{background:#00d98a;box-shadow:0 8px 24px rgba(0,245,160,.3);transform:translateY(-2px)}
+.resume-dl-btn{font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.6rem 1.4rem;background:transparent;color:var(--muted);border:1px solid rgba(255,255,255,.1);text-decoration:none;display:inline-flex;align-items:center;gap:.5rem;border-radius:3px;transition:all .2s;white-space:nowrap}
+.resume-dl-btn:hover{color:var(--g1);border-color:rgba(0,245,160,.3);transform:translateY(-2px)}
+
 @media(max-width:768px){
   body{cursor:auto}
   #cur,#cur-trail{display:none}
   nav{padding:1rem 1.5rem}.nav-links{display:none}
+  .nav-resume-btn{display:none}
   .nav-status{font-size:.6rem}
-  #hero{padding:0 1.5rem}
+  #hero{padding:5rem 1.5rem 4rem}
   .scroll-down{display:none}
   section.main-sec{padding:5rem 1.5rem}
   .skills-outer{grid-template-columns:1fr}
@@ -254,6 +323,8 @@ footer{background:var(--black);padding:2rem 4rem;display:flex;align-items:center
   footer{flex-direction:column;gap:.5rem;text-align:center;padding:1.5rem}
   .bento-grid{grid-template-columns:repeat(2,1fr)}
   .clock-card{grid-template-columns:1fr}
+  .resume-cta-card{flex-direction:column;align-items:flex-start;padding:1.5rem}
+  .resume-cta-right{flex-direction:row;flex-wrap:wrap}
 }
 </style>
 </head>
@@ -273,6 +344,10 @@ footer{background:var(--black);padding:2rem 4rem;display:flex;align-items:center
     <li><a href="#timeline-section">Journey</a></li>
     <li><a href="#contact-section">Contact</a></li>
   </ul>
+  <a href="resume/Sapan_Desai_Resume.pdf" target="_blank" class="nav-resume-btn" title="View Résumé">
+    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg>
+    Résumé
+  </a>
   <div class="nav-status">Available for hire</div>
 </nav>
 
@@ -295,7 +370,7 @@ footer{background:var(--black);padding:2rem 4rem;display:flex;align-items:center
     <a href="#projects-section" class="cta-main">View Projects ↗</a>
     <a href="#contact-section" class="cta-sec">Let's Talk</a>
   </div>
-  <div class="scroll-down">Scroll<div class="scroll-line"></div></div>
+  <div class="scroll-down"><div class="scroll-line"></div></div>
 </section>
 
 <!-- MARQUEE RIBBON — right after hero -->
@@ -530,11 +605,7 @@ footer{background:var(--black);padding:2rem 4rem;display:flex;align-items:center
     <div style="flex:1"><div class="ach-unlock-tag green">Community Leader · AI Advocate</div><div class="ach-unlock-title">Google Gemini Student Ambassador</div><div class="ach-unlock-sub">Recently selected for the Google Gemini Student Ambassador Program, promoting AI learning, community engagement, and practical adoption of Google's Gemini technologies among students</div></div>
     <div class="ach-xp green">Ambassador</div>
   </div>
-  <div class="ach-unlock-card blue">
-    <div class="ach-icon-box blue">👥</div>
-    <div style="flex:1"><div class="ach-unlock-tag blue">Community Leader · Tech Advocate</div><div class="ach-unlock-title">GeeksforGeeks Student Ambassador</div><div class="ach-unlock-sub">Representing GeeksforGeeks on campus by encouraging coding culture, sharing technical resources, and helping students discover learning opportunities and developer communities</div></div>
-    <div class="ach-xp blue">Ambassador</div>
-  </div>
+
   <div class="ach-unlock-card blue">
     <div class="ach-icon-box blue">🎯</div>
     <div style="flex:1"><div class="ach-unlock-tag blue">Leadership · Event Management</div><div class="ach-unlock-title">Agnitio 2025 + TechTonic — Lead Coordinator</div><div class="ach-unlock-sub">Volunteers · Stage flow · On-ground execution · CMPICA, CHARUSAT</div></div>
@@ -556,6 +627,29 @@ footer{background:var(--black);padding:2rem 4rem;display:flex;align-items:center
     <a href="https://www.instagram.com/code_with_sapan" target="_blank" class="contact-btn">↗ Instagram</a>
     <a href="https://github.com/Sapan02206" target="_blank" class="contact-btn">↗ GitHub</a>
     <a href="mailto:sapan022006@gmail.com" class="contact-btn primary-btn">✉ sapan022006@gmail.com</a>
+  </div>
+  <!-- RESUME CTA -->
+  <div class="resume-cta-wrap">
+    <div class="resume-cta-card">
+      <div class="resume-cta-left">
+        <div class="resume-cta-label">// Curriculum Vitae</div>
+        <div class="resume-cta-title">Sapan Desai</div>
+        <div class="resume-cta-sub">Full-Stack Developer · BCA @ CHARUSAT · CGPA 8.045</div>
+        <div class="resume-cta-tags">
+          <span>Node.js</span><span>MongoDB</span><span>JavaScript</span><span>React</span><span>Express.js</span>
+        </div>
+      </div>
+      <div class="resume-cta-right">
+        <a href="resume/Sapan_Desai_Resume.pdf" target="_blank" class="resume-view-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          View Résumé
+        </a>
+        <a href="resume/Sapan_Desai_Resume.pdf" download class="resume-dl-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download
+        </a>
+      </div>
+    </div>
   </div>
 </section>
 
